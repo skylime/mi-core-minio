@@ -1,0 +1,9 @@
+name="core-minio"
+organization="SkyLime"
+brand="Instance"
+version="20.2.0"
+description="core.io Minio - High-performance, software-defined object storage"
+homepage="https://github.com/skylime/mi-core-minio"
+users="root admin"
+minram=1024
+base="6be3b1c7-a8f3-4f44-82c8-7a58df74706b"

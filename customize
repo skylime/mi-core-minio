@@ -1,0 +1,27 @@
+#!/usr/bin/bash
+#
+# Put customizations to your image in this file.
+
+# Custom versions and variables
+PATH=/opt/local/gnu/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin
+
+# Munin plugins
+MUNIN_PLUGINS="
+	nginx
+"
+
+# Exit if any commands fail
+set -o errexit
+
+echo "* Create ssl folder for nginx"
+mkdir /opt/local/etc/nginx/ssl
+
+echo "* Activate munin plugins"
+/opt/core/bin/munin-node-plugins ${MUNIN_PLUGINS}
+
+echo "* Cleanup home/admin because of delegate dataset usage"
+rm -rf /home/admin/.[^.]*
+
+echo "* Cleaning up"
+rm -rf /root/*
+sm-prepare-image -y
