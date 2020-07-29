@@ -16,6 +16,10 @@ set -o errexit
 echo "* Create ssl folder for nginx"
 mkdir /opt/local/etc/nginx/ssl
 
+echo "* Create user for minio service"
+groupadd minio
+useradd -b /data -g minio -s /usr/bin/false minio
+
 echo "* Activate munin plugins"
 /opt/core/bin/munin-node-plugins ${MUNIN_PLUGINS}
 
