@@ -17,6 +17,7 @@ echo "* Create ssl folder for nginx"
 mkdir /opt/local/etc/nginx/ssl
 
 echo "* Create user for minio service"
+mkdir -p /data
 groupadd minio
 useradd -b /data -g minio -s /usr/bin/false minio
 
